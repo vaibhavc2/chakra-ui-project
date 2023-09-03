@@ -1,10 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import * as React from 'react'
+import { ColorModeScript, ChakraProvider, theme } from '@chakra-ui/react'
+import * as ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
+import ColorModeSwitcher from './ColorModeSwitcher.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+
+const rootElement = document.getElementById('root')
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <App />
+    <ColorModeScript />
+    <ChakraProvider theme={theme}>
+      <ColorModeSwitcher />
+      <App />
+    </ChakraProvider>
   </React.StrictMode>,
 )
